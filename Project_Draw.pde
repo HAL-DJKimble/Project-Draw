@@ -13,11 +13,27 @@ smooth();
 noStroke();
 }
 void draw() {
+  //COLOR INDICATORS
+  rect(10,10,15,15);
+  fill(r,0,0);
+  rect(35, 10, 10, 10);
+  fill(0,g,0);
+  rect(55,10,10,10);
+  fill(0,0,b);
+  rect(75,10,10,10);
+  //SIZE INDICATORS
+  fill(227, 234, 244);
+  ellipse(740,10,s/1.9,s/1.9);
+  fill(0,0,0);
+  ellipse(740,10,s/2,s/2);
+  fill(227, 234, 244);
+  ellipse(740,10,s/2.1,s/2.1);
   fill(r,g,b);
+  // KEYBOARD COMMANDS
   if (keyPressed == true) {
     if(key == 'w'){
-    fill(random(37), random(100), random(100));
-    stroke(random(137), random(100, random(100)));
+    fill(random(200), random(200), random(200));
+ //   stroke(random(200), random(200, random(200)));
     //this is for random colors
     }
     if(key == 'a'){
@@ -93,11 +109,7 @@ void draw() {
   if(mousePressed){
   ellipse(mouseX,mouseY,s,s);
   }
-  rect(10,10,15,15);
-  fill(r,0,0);
-  rect(35, 10, 10, 10);
-  fill(0,g,0);
-  rect(55,10,10,10);
-  fill(0,0,b);
-  rect(75,10,10,10);
+   if(mousePressed){
+  ellipse(mouseX,mouseY,s,s);
+  }
 }
