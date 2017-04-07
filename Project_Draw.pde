@@ -3,7 +3,13 @@ int r = 0;
 int g = 0;
 int b = 0;
 //above are variables for size and each RGB value.
-
+int r1 = 0;
+int g1 = 0;
+int b1 = 0;
+int r2 = 0;
+int g2 = 0;
+int b2 = 0;
+//above are color storage variables.
 void setup() {
 size(750,750);
 strokeWeight(1);
@@ -50,39 +56,59 @@ void draw() {
       fill(227, 234, 244);
       //no pointer, so you don't have to erase to not draw.
     }
-    
     if(key == '2'){
-    r=r-5;
+    r=r-2;
     r = r;
     //decrease red
     }
     if(key == '3'){
-      g = g+5;
+      g = g+2;
       g = g;
       //increase green
     }
     if(key == '4'){
-      g=g-5;
+      g=g-2;
       g =g;
       //decrease green
     }
     if(key == '5'){
-      b = b+5;
+      b = b+2;
       b = b;
       //blue up
     }
     if(key == '6'){
-      b = b-5;
+      b = b-2;
       b = b;
       //blue down
     }
     if(key == '1'){
-      r = r+5;
+      r = r+2;
       r = r;
     }
     if(key == 'z'){
       background(227, 234, 244);
       //RESET BUTTON
+    }
+    //SAVE COLORS WITH 7&9, LOAD WITH 8&0, RESPECTIVELY.
+    if(key=='7'){
+      r1=r;
+      g1=g;
+      b1=b;
+    }
+    if(key=='8'){
+     r=r1;
+     g=g1;
+     b=b1;
+    }
+    if(key=='9'){
+     r2=r;
+     g2=g;
+     b2=b;
+    }
+    if(key=='0'){
+     r=r2;
+     g=g2;
+     b=b2;
     }
   }
   //below are the color bounds. This stops a glitch where color values... 
