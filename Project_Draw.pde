@@ -44,9 +44,19 @@ void draw() {
     }
     if(key == 'a'){
     s = s-1;
+      if(s>285){
+    if(s<-285){
+    s=285;
+    }
+  }
     }
     if(key == 'd') {
     s = s+1;
+      if(s>285){
+    if(s<-285){
+    s=285;
+    }
+  }
     }
     if(key == 's'){
       s = 10;
@@ -137,5 +147,24 @@ void draw() {
   }
    if(mousePressed){
   ellipse(mouseX,mouseY,s,s);
+  }
+  //Time for clickables!
+  //Size Clickables
+  fill(1,0,0);
+  triangle(630,30, 650,10, 670,30);
+  if(630<mouseX&&mouseX<670 && 10<mouseY&&mouseY<30&&mousePressed){
+  s=s+1;  
+}
+  triangle(630,35, 650,55, 670,35);
+  if(630<mouseX&&mouseX<670 && 35<mouseY&mouseY<55 && mousePressed){
+    s=s-1;
+  }
+  //size reset
+  rect(590,10,30,45);
+  if(s>285){
+    s=285;
+  }
+  if(s<1){
+    s=1;
   }
 }
