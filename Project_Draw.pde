@@ -19,29 +19,42 @@ smooth();
 noStroke();
 }
 void draw() {
+  //POINTER
+  fill(r,g,b);
+  if(mousePressed){
+ // ellipse(mouseX,mouseY,s,s);
+ stroke(r,g,b);
+ strokeWeight(s);
+ line(mouseX,mouseY,pmouseX,pmouseY);
+  }
   //COLOR INDICATORS
+  noStroke();
   rect(10,10,15,15);
   fill(r,0,0);
   rect(35, 10, 10, 10);
+  if(35<mouseX&&mouseX<45 && 10<mouseY&&mouseY<20 && mousePressed){
+    r=r+1;
+  }
   fill(0,g,0);
   rect(55,10,10,10);
+  if(55<mouseX&&mouseX<65 && 10<mouseY&&mouseY<20 && mousePressed){
+    g=g+1;
+  }
   fill(0,0,b);
   rect(75,10,10,10);
+  if(75<mouseX&&mouseX<85 && 10<mouseY&&mouseY<20 && mousePressed){
+    b=b+1;
+  }
   //SIZE INDICATORS
   fill(227, 234, 244);
   ellipse(740,10,s/1.9,s/1.9);
-  fill(0,0,0);
+  fill(50,50,50);
   ellipse(740,10,s/2,s/2);
   fill(227, 234, 244);
   ellipse(740,10,s/2.1,s/2.1);
   fill(r,g,b);
   // KEYBOARD COMMANDS
   if (keyPressed == true) {
-    if(key == 'w'){
-    fill(random(200), random(200), random(200));
- //   stroke(random(200), random(200, random(200)));
-    //this is for random colors
-    }
     if(key == 'a'){
     s = s-1;
       if(s>285){
@@ -63,8 +76,15 @@ void draw() {
       //resets size
     }
     if(key == 'q'){
-      fill(227, 234, 244);
+      r=227; 
+      g=234; 
+      b=244;
       //no pointer, so you don't have to erase to not draw.
+    }
+    if(key == 'e'){
+      r=0;
+      g=0;
+      b=0;
     }
     if(key == '2'){
     r=r-2;
@@ -121,7 +141,91 @@ void draw() {
      b=b2;
     }
   }
-  //below are the color bounds. This stops a glitch where color values... 
+    //Time for clickables!
+  //Size Clickables
+  fill(50,50,50);
+  triangle(630,30, 650,10, 670,30);
+  if(630<mouseX&&mouseX<670 && 10<mouseY&&mouseY<30&&mousePressed){
+  s=s+1;  
+}
+  triangle(630,35, 650,55, 670,35);
+  if(630<mouseX&&mouseX<670 && 35<mouseY&mouseY<55 && mousePressed){
+    s=s-1;
+  }
+  //size reset
+  rect(590,10,30,45);
+  if(590<mouseX&&mouseX<620 && 10<mouseY&mouseY<55 && mousePressed){
+    s=10;
+  }
+  if(s>285){
+    s=285;
+  }
+  if(s<1){
+    s=1;
+  }
+  fill(200,0,0);
+  rect(550,10,30,45);
+  if(550<mouseX&&mouseX<580 && 10<mouseY&mouseY<55 && mousePressed){
+        background(227, 234, 244);
+  }
+  fill(r/1.5,0,0);
+  rect(35, 25, 10, 10);
+  if(35<mouseX&&mouseX<45 && 25<mouseY&&mouseY<35 && mousePressed){
+    r=r-1;
+  }
+  fill(0,g/1.5,0);
+  rect(55,25,10,10);
+  if(55<mouseX&&mouseX<65 && 25<mouseY&&mouseY<35 && mousePressed){
+   g=g-1; 
+  }
+  fill(0,0,b/1.5);
+  rect(75,25,10,10);
+  if(75<mouseX&&mouseX<85 && 25<mouseY&&mouseY<35 && mousePressed){
+    b=b-1;
+  }
+  fill(200,200,200);
+  rect(105,10,20,25);
+  if(105<mouseX&&mouseX<125 && 10<mouseY&&mouseY<30 && mousePressed){
+      r=227; 
+      g=234; 
+      b=244;
+  }
+  fill(0,0,0);
+  rect(135,10,20,25);
+  if(135<mouseX&&mouseX<155 && 10<mouseY&&mouseY<30 && mousePressed){
+      r=0; 
+      g=0; 
+      b=0;
+  }
+  fill(75,75,75);
+  rect(165,10,20,25);
+  if(165<mouseX&&mouseX<175 && 10<mouseY&&mouseY<30 && mousePressed){
+      r1=r;
+      g1=g;
+      b1=b;
+  }
+  fill(r1,g1,b1);
+  rect(195,10,20,25);
+  if(195<mouseX&&mouseX<215 && 10<mouseY&&mouseY<30 && mousePressed){
+  r=r1;
+  g=g1;
+  b=b1;
+  }
+  fill(50,50,50);
+  rect(225,10,20,25);
+  if(225<mouseX&&mouseX<245 && 10<mouseY&&mouseY<30 && mousePressed){
+      r2=r;
+      g2=g;
+      b2=b;
+  }
+  fill(r2,g2,b2);
+  rect(255,10,20,25);
+  if(255<mouseX&&mouseX<275 && 10<mouseY&&mouseY<30 && mousePressed){
+  r=r2;
+  g=g2;
+  b=b2;
+  }
+//below are the color bounds. This stops a glitch where color values... 
   //...are too high or too low to ever change again.
   if(r>255){
     r=255;
@@ -142,29 +246,5 @@ void draw() {
     b = 0;
   }
   //END COLOR BORDERS
-  if(mousePressed){
-  ellipse(mouseX,mouseY,s,s);
-  }
-   if(mousePressed){
-  ellipse(mouseX,mouseY,s,s);
-  }
-  //Time for clickables!
-  //Size Clickables
-  fill(1,0,0);
-  triangle(630,30, 650,10, 670,30);
-  if(630<mouseX&&mouseX<670 && 10<mouseY&&mouseY<30&&mousePressed){
-  s=s+1;  
-}
-  triangle(630,35, 650,55, 670,35);
-  if(630<mouseX&&mouseX<670 && 35<mouseY&mouseY<55 && mousePressed){
-    s=s-1;
-  }
-  //size reset
-  rect(590,10,30,45);
-  if(s>285){
-    s=285;
-  }
-  if(s<1){
-    s=1;
-  }
+  
 }
